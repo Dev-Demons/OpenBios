@@ -1,0 +1,19 @@
+/* CSS Document */
+
+.survey_box table.borderAll {border: thin solid #ccc;}
+
+.survey_box .font12 {font-size:12px;}
+
+.survey_header {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.survey_title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.survey_context {
+	font-size: 12px;
+}

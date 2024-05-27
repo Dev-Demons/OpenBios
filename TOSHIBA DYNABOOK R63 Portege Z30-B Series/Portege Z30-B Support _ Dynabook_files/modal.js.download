@@ -1,0 +1,131 @@
+// JavaScript Document
+$(document).ready(function(){
+/*run tabs model details*/	
+
+$('.content_tabs1').show();
+$('.content_tabs2').hide();
+$('.content_tabs3').hide();
+$('.content_tabs4').hide();
+$('.content_tabs5').hide();
+$('li.tab1').addClass("active");
+
+
+$('li.tab1').click (function()
+{
+$('.content_tabs1').show();
+$('.content_tabs2').hide();
+$('.content_tabs3').hide();
+$('.content_tabs4').hide();
+$('.content_tabs5').hide();
+$('li.tab1').addClass("active");
+return false;
+});
+
+$('li.tab2').click (function()
+{
+$('.content_tabs1').hide();
+$('.content_tabs2').show();
+$('.detail_view4').show();
+$('.detail_view1').hide();
+$('.content_tabs3').hide();
+$('.content_tabs4').hide();
+$('.content_tabs5').hide();
+return false;
+});
+
+$('li.tab3').click (function()
+{
+$('.content_tabs1').hide();
+$('.content_tabs2').hide();
+$('.content_tabs3').show();
+$('.content_tabs4').hide();
+$('.content_tabs5').hide();
+return false;
+});
+
+$('li.tab4').click (function()
+{
+$('.content_tabs1').hide();
+$('.content_tabs2').hide();
+$('.content_tabs3').hide();
+$('.detail_view1').hide();
+$('.content_tabs5').hide();
+$('.content_tabs4').show();
+$('.detail_view4').show();
+return false;
+});
+
+$('li.tab5').click (function()
+{
+$('.content_tabs1').hide();
+$('.content_tabs2').hide();
+$('.content_tabs3').hide();
+$('.content_tabs4').hide();
+$('.content_tabs5').show();
+$('.detail_view').show();
+$('.detail_view3').hide();
+$('.detail_view2').hide();
+return false;
+});
+
+
+/*run subtabs */
+$('section_title').show();
+$('.detail_view').show();
+$('.detail_view1').hide();
+$('.detail_view2').hide();
+$('.detail_view3').hide();
+
+$('.show_tech').click (function()
+{
+$('.detail_view').hide();
+$('.detail_view1').hide();
+$('.detail_view2').show();
+$('.detail_view3').hide();
+return false;
+});
+
+
+$('.show_parts').click (function()
+{
+$('.detail_view').hide();
+$('.detail_view1').hide();
+$('.detail_view2').hide();
+$('.detail_view3').show();
+return false;
+});
+
+
+$('.list_back').click (function()
+{
+$('.detail_view').show();
+$('.detail_view1').hide();
+$('.detail_view2').hide();
+$('.detail_view3').hide();
+return false;
+});
+
+
+$('.show_updates').click (function()
+{
+$('.detail_view4').hide();
+$('.detail_view').hide();
+$('.detail_view1').show();
+$('.detail_view2').hide();
+$('.detail_view3').hide();
+return false;
+});
+
+
+$('.return_list').click (function()
+{
+$('.detail_view').show();
+$('.detail_view1').hide();
+$('.detail_view2').hide();
+$('.detail_view3').hide();
+$('.detail_view4').show();
+return false;
+});
+
+
+});

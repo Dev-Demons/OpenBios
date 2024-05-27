@@ -1,0 +1,304 @@
+/*jslint browser: true, devel: true, onevar: true, undef: true, white: true, sloppy: true */
+/*global jQuery */
+
+/**
+* spin-button.js
+* Version: [];
+* By Clark Christensen at TAIS
+* Copyright (C) 2013 Toshiba America Information Systems, Inc.
+* All rights reserved.
+**/
+
+/*
+Title: jQuery.spinButton
+
+jQuery Plugin provides an interface for displaying a "wait" spinner on a button
+widget.
+
+Example:
+
+(code)
+   $('button.myButton').spinButton();
+   // equivalent to:
+   $('button.myButton').spinButton({
+      defaultSpinning            : false,
+      disableWhileSpinning       : true,
+      spinnerClass               : 'buttonSpinner',
+      buttonTextClass            : 'buttonSpinnerButtonText',
+      buttonTextInvisibleClass   : 'buttonSpinnerButtonTextInvisible'
+   })
+(end)
+
+Returns:
+
+	jQuery collection.
+
+Parameters:
+
+	defaultSpinning - Boolean.  When true, the button immediately goes into spin mode.
+	Default is false.
+
+	disableWhileSpinning - Boolean.  When true, the button is disabled while in spin mode
+	to prevent multiple clicks. Default is true.
+
+	spinnerClass - String.  CSS classname to be used as for spin mode.  Default is _buttonSpinner_,
+	which uses a white spinner suitable for buttons with a dark background. _buttonSpinnerLight_ and
+	_buttonSpinnerWhite_ are aliases for the default.  _buttonSpinnerDark_ uses a dark spinner suitable
+	for buttons having a light background, like the browser-default buttons.
+
+	buttonTextClass - String.  CSS classname to be applied to the button text.  Default is
+	'buttonSpinnerButtonText'.  The plugin wraps the button text in a <span> tag on instantiation,
+	and the span carries this class.  The plugin doesn't use it, so it's provided as a convenience.
+
+	buttonTextInvisibleClass - String.  CSS classname to be used to hide the button text in
+	spin mode.  Default is 'buttonSpinnerButtonTextInvisible'.
+
+	Notes:
+
+	o This plugin only works on HTML BUTTON nodes.
+
+	><button type="button">Click Me</button>
+
+	o INPUT nodes, regardless of type are not supported.
+
+	o The button disabling feature of this plugin requires jQuery 1.6.0 or later (.prop)
+	It's disabled when jQuery is older than 1.6.0.
+
+	o Doesn't work with IE6.  With IE6 on WinXP 32-bit, the button text disappears like it's
+	supposed to, but the spinner image never shows.  IE6 probably doesn't support
+	background-images on buttons.
+
+	o Tested and working with IE8 on WinXP 32-bit.
+	o Tested and working with IE9, FireFox 21, and Chrome 27, on Windows 7 x64.
+	o Tested and working with Safari and Chrome on iOS 6 (iPhone).  The transitions are slow there.
+*/
+
+(function ($, pluginID, undefined) {
+	var methods, _supplant, _spin, _stop;
+
+//	pluginID = 'spinButton';
+
+	/**
+	* newstring = _supplant(template, obj);
+	* private utility method replaces "{name}" in "My name is {name}!" with the value of obj.name
+	**/
+	_supplant = function (template, obj) {
+		if (!template || (typeof template !== 'string')) { return template; }
+		return template.replace(/\{([^\{\}]*)\}/, function (a, b) {
+			return obj[b].toString();
+		});
+	};	// _supplant()
+
+	/**
+	* _spin(jquery, plug-in_data);
+	* Worker function to display the "wait" spinner on a button
+	* There's no return value.
+	**/
+	_spin = function (self, piData) {
+		if (piData.isSpinning) { return; }
+		self.addClass(piData.spinnerClass);
+		piData.buttonText.addClass(piData.buttonTextInvisibleClass);
+		piData.isSpinning = true;
+		if (piData.disableWhileSpinning) {
+			self.prop('disabled', true);
+		}
+	};
+
+	/**
+	* _spin(jquery, plug-in_data);
+	* Worker function to clear the "wait" spinner on a button
+	* and restore the button text.  There's no return value.
+	**/
+	_stop = function (self, piData) {
+		if (!piData.isSpinning) { return; }
+		self.removeClass(piData.spinnerClass);
+		piData.buttonText.removeClass(piData.buttonTextInvisibleClass);
+		piData.isSpinning = false;
+		if (piData.disableWhileSpinning) {
+			self.prop('disabled', false);
+		}
+	};
+
+	methods = {
+		init : function (options) {
+			return this.each(function () {
+				var self, piData, bt, btWrapper;
+				self = $(this);
+				// buttons only, for now
+				if (self.get(0).nodeName !== 'BUTTON') {
+					return;
+				}
+				// Already a widget?
+				if ( self.data(pluginID) ) { return self; }
+
+				/**
+				* Combine our defaults with the incoming options
+				* Attach the resulting date object to the container
+				* and save a reference to it as piData (plug-in Data)
+				**/
+				self.data(pluginID, $.extend({
+					defaultSpinning: false,
+					disableWhileSpinning: true,
+					spinnerClass: 'buttonSpinner',
+					buttonTextClass: 'buttonSpinnerButtonText',
+					buttonTextInvisibleClass: 'buttonSpinnerButtonTextInvisible'
+				}, options));
+				piData = self.data(pluginID);
+				piData.isSpinning = false; // private
+				if (typeof($.fn.prop) !== 'function') {
+					piData.disableWhileSpinning = false; // not supported on old jQuery before 1.6
+				}
+				btWrapper = _supplant('<span class="{buttonTextClass}" />', piData);
+				bt = piData.buttonText = self.wrapInner(btWrapper).children('span:first');
+				if (piData.defaultSpinning) {
+					_spin(self, piData);
+				}
+			});	// each()
+		},	// init()
+
+		/**
+		* Method: spin
+		*
+		*	Start spin mode on the collection of buttons.
+		*
+		* > $(buttonSelector).spinButton('spin');
+		*
+		* Returns:
+		*
+		*	jQuery.
+		*
+		**/
+		spin: function () {
+			return this.each(function () {
+				var self, piData;
+				self = $(this);
+				piData = self.data(pluginID);
+				if (!piData) { return; }
+				if (piData.isSpinning) { return; }
+				_spin(self, piData);
+			});
+		},
+
+		/**
+		* Method: stop
+		*
+		*	Cancel spin mode on the collection of buttons, and restore visibility of
+		*	the button text.
+		*
+		* > $(buttonSelector).spinButton('stop');
+		*
+		* Returns:
+		*
+		*	jQuery.
+		*
+		**/
+		stop: function () {
+			return this.each(function () {
+				var self, piData;
+				self = $(this);
+				piData = self.data(pluginID);
+				if (!piData) { return; }
+				if (!piData.isSpinning) { return; }
+				_stop(self, piData);
+			});
+		},
+
+		/**
+		* Method: toggle
+		*
+		*	Toggles spin mode on the collection of buttons.  For spinning
+		*	buttons, cancels spin mode.  For non-spinning buttons, it starts
+		*	spin mode.
+		*
+		* > $(buttonSelector).spinButton('toggle');
+		*
+		* Returns:
+		*
+		*	jQuery.
+		*
+		**/
+		toggle: function () {
+			return this.each(function () {
+				var self, piData;
+				self = $(this);
+				piData = self.data(pluginID);
+				if (!piData) { return; }
+				if (piData.isSpinning) {
+					_stop(self, piData);
+				} else {
+					_spin(self, piData);
+				}
+			});
+		},
+
+		/**
+		* Method: option
+		*
+		* Setter function for our options post-instantiation.
+		*
+		* > $(buttonSelector).spinButton('option', optionName, optionNewValue);
+		*
+		* Returns:
+		*
+		*	jQuery.
+		*
+		**/
+		option: function (name, newval) {
+			return this.each(function () {
+				var self, piData;
+				self = $(this);
+				piData = self.data(pluginID);
+				if (piData && name && ($.type(piData[name]) !== 'undefined') && $.type(newval) !== 'undefined') {
+					if (name === 'isSpinning') { return; } // don't allow outsiders to set our isSpinning property
+					if (/^defaultSpinning|disableWhileSpinning/.test(name)) {
+						// boolean properties to get true/false boolean values
+						newval = (newval)?true:false;
+					}
+					piData[name] = newval;
+					/**
+					* custom handlers for when we update particular properties
+					**/
+					//switch (name) {
+					//	case 'propKey':
+					//		// handler code here
+					//	break;
+					//}
+				}
+			});
+		},	// option()
+
+		/**
+		* Method: destroy
+		*
+		*	Stops spin mode, and removes the spinButton plugin instance from the collection.
+		*
+		* > $(buttonSelector).spinButton('destroy');
+		*
+		* Returns:
+		*
+		*	jQuery.
+		*
+		**/
+		destroy : function () {
+			return this.each( function () {
+				var self,  piData;
+				self = $(this);
+				piData = self.data(pluginID);
+				if (!piData) { return self; }
+				_stop(self, piData);
+				self.removeData((pluginID));
+			});
+		}
+
+	};
+	$.fn[pluginID] = function (method) {
+		if ( methods[method] ) {
+			return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
+		} else if ( typeof method === 'object' || ! method ) {
+			return methods.init.apply( this, arguments );
+		} else {
+			$.error( 'Method ' +  method + ' does not exist on jQuery.' + pluginID );
+		}
+	};
+
+}(jQuery, 'spinButton'));

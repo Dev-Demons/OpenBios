@@ -1,0 +1,299 @@
+﻿/* Resets */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,
+q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,
+td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,
+video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+table{border-collapse:collapse;border-spacing:0}
+
+/* Wrapper and Defaults */
+    .page-wrapper { position: relative; min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -232px;}
+    .content { width: 980px; margin: 0 auto; position: relative; height: 100%; }
+    html, body { height: 100%; }
+    /*body { background: url(/images/shop/backgrounds/header-grad-bg.gif) repeat-x; margin: 0; width: 100%; height: 100%; position: relative; }*/
+    body { background: rgba(0, 0, 0, 0) none repeat scroll 0 0; }
+    body, div, p, a, li { font: normal 12px/14px arial,sans-serif; }
+    body, div, p, li { color: #333; }
+    h1, h2, h3, h4, h5, h6, ul, li { padding: 0; margin: 0; }
+    h1, h2, h3, h4, h5, h6 { color: #000; }
+    strong { font-weight: bold; }
+    em { font-style: italic; }
+    sup { vertical-align: super; }
+    a, a:link, a:visited { color: #00447c; outline: 0 none; text-decoration: none; cursor: pointer; }
+    a:hover { color: #c00; }
+    input { margin: 0; padding: 0; color: #666; }
+    .arrow { color: #CC0000; font-size: 16px; margin: 0 3px 0 0; position: relative; top: 1px; }
+    .col { float: left; }
+    .center { text-align: center; }
+    .hide { display: none; }
+    .show { display: block; }
+    /*.info-icon { background: url(/images/shop/icons/info-icon.gif) no-repeat; float: left; display: block; width: 21px; height: 21px; margin-left: 10px; }*/
+    
+    /* float clearing hack */
+    .clearthis:after { content: "."; display: block; height: 0; clear: both; visibility: hidden }
+    .clearthis { display: inline-block }
+    .clearthis { display: block } /* Hides from IE-mac \*/
+    .clr { clear: both; } 
+
+/*/!* Global Header *!/
+    #Page-Header { height: 168px; position: relative; z-index: 100; }
+    /!* Level-1-Nav *!/
+        #Segment-Nav { float: left; }
+        .link-sep { display: block; float: left; background: url(/images/shop/backgrounds/link-grad-sep.png) no-repeat center; width: 1px; height: 30px; }
+        #Cust-Links { float: right; }
+        #Cust-Links a, #Segment-Nav a { display: block; float: left; font-size: 13px; padding: 8px; text-decoration: none; }
+        #Cust-Links a.active, #Segment-Nav a.active { background: #ba0000; color: #fff; }
+        #Cart-Nav { float: right; }
+        #View-Cart { float: right; }
+        #View-Cart a { background: transparent url(/images/shop/backgrounds/view-cart-bg.png) no-repeat left 0; cursor: pointer; height: 42px; float: left; line-height: 42px; outline: none;	margin-right: 9px; padding: 0; position: relative; text-decoration: none; width: 35px; font-size: 14px; font-weight: bold; }
+        #View-Cart a span { background: transparent url(/images/shop/backgrounds/view-cart-bg.png) no-repeat right 0;	color: white; cursor: pointer; float: left; left: 35px;	line-height: 33px; margin: 0 !important; padding: 0 17px 0 2px;	position: relative; height: 42px; }
+    /!* Level-2-Nav *!/
+        #Level-1-Nav { width: 100%; opacity: 0; filter:Alpha(Opacity=0); height: 48px; }
+        #Level-2-Nav { clear: both; width: 100%; position: absolute; top: 60px; left: 0; }
+        #Level-2-Nav .main-nav { float: left; cursor: pointer; }
+        #Home-Logo { display: block; background: url(/images/shop/brand-logos/toshiba-logo-white.png) no-repeat; width: 140px; height: 38px; float: left;  margin-top: 13px; padding-right:10px;}
+        #Search-Nav { float: right; margin-right: -2px; position: relative; top: 23px; }
+        #Search-Nav li { float: left; }
+        .segment-title { font: normal 24px/24px 'HelveticaNeueW01-45Ligh',Arial,sans-serif; float: left; color: #fff; padding: 26px 0 0 20px; }
+        #Search-Input { background: url(/images/shop/backgrounds/search-bg.png) repeat-x; float: left; margin: 1px 0 0 30px; width: 203px; height: 32px; }
+        #Search-Input input { background: none repeat scroll 0 0 transparent; border: medium none; margin: 1px; padding: 5px; width: 192px; }           
+        #Search-Btn { display: block; width: 48px; height: 32px; margin: 0 0 0 1px; cursor: pointer; background: url(/images/shop/buttons/search-btn.png) no-repeat; }
+        #Search-Btn:hover { background: url(/images/shop/buttons/search-btn-active.png) no-repeat; }
+        #Search-Btn input { background:none; width:100%; height:100%; cursor:pointer; border: none; margin:0px; padding:0px; }
+        #Live-Chat-Btn a { display: block; height: 32px; margin: 0 0 0 1px; width: 112px; }
+        #Live-Chat-Btn .lp-online { background: url(/images/shop/buttons/live-chat-btn.png) no-repeat scroll 0 0 transparent; }
+        #Live-Chat-Btn .lp-online:hover { background: url(/images/shop/buttons/live-chat-btn-active.png) no-repeat scroll 0 0 transparent; }
+        #Live-Chat-Btn .lp-offline { background: url(/images/shop/buttons/live-chat-btn.png) no-repeat scroll 0 0 transparent; }
+        #Live-Chat-Btn .lp-offline:hover { background: url(/images/shop/buttons/live-chat-btn-active.png) no-repeat scroll 0 0 transparent; }
+        #Live-Chat-Btn .lp-busy { background: url(/images/shop/buttons/live-chat-btn.png) no-repeat scroll 0 0 transparent; }
+        #Live-Chat-Btn .lp-busy:hover { background: url(/images/shop/buttons/live-chat-btn-active.png) no-repeat scroll 0 0 transparent; }
+        #Live-Chat-Btn .lp-idle { background: url(/images/shop/buttons/live-chat-btn.png) no-repeat scroll 0 0 transparent; }
+        #Live-Chat-Btn .lp-idle:hover { background: url(/images/shop/buttons/live-chat-btn-active.png) no-repeat scroll 0 0 transparent; }                        
+        #Contact-Us-Btn { background: url(/images/shop/buttons/contact-us-btn.png) no-repeat scroll 0 0 transparent; display: block; height: 32px; margin: 0 0 0 1px; width: 102px; position: relative; z-index: 999; }
+        #Contact-Us-Btn:hover { background: url(/images/shop/buttons/contact-us-btn-active.png) no-repeat scroll 0 0 transparent; }
+        #Contact-Us-Btn .sub-nav { width: 190px; top: 29px; left: -110px; padding: 10px 10px 0 10px; }
+        #Contact-Us-Btn .sub-nav li span { display: block; font-weight: bold; }
+        #Email-Links { border-top: 1px solid #ccc; width: 100%; padding: 15px 0 0 0; margin-top: 5px; }
+        #Email-Links a { display: block; padding-bottom: 15px; }
+        #MDA-Tagline { position: absolute; top: 0; right: 0; color: #fff; font-weight: bold; }
+    /!* Level-3-Nav *!/
+        #Level-3-Nav { clear: both; visibility: hidden; height: 30px; position: relative; top: 90px; }
+        #Level-3-Nav .main-nav .level-1 { position: absolute; top: 0; height: 27px; }
+        #Level-3-Nav .main-nav .level-1.active,
+        #Level-3-Nav .main-nav .level-1:hover,
+        #Level-3-Nav .main-nav .level-1.special { background: url(/images/shop/backgrounds/main-nav-bg-active.png) no-repeat 0 0; }
+        #Level-3-Nav .main-nav .level-1.special { border-bottom: 3px solid #fff;  }
+        #Level-3-Nav .main-nav .level-1.special:hover { background: url(/images/shop/backgrounds/main-nav-bg-specials-active.png) no-repeat 0 0; } 
+        #Level-3-Nav .main-nav .level-1.inactive { border: none; background: none; }  
+
+
+        .main-nav .level-1 > a { display: block; color: #fff; font-size: 14px; font-weight: bold; text-transform: uppercase; padding: 7px 15px 0; text-shadow: 1px 2px 1px #390101; }
+        .sub-nav { display: none; background: #fff url(/images/shop/backgrounds/top-nav-sub-grad-bg.gif) repeat-x bottom; -moz-box-shadow: 0 0 10px 0 #333; -webkit-box-shadow: 0 0 10px 0 #333; box-shadow: 0 0 10px 0 #333; position: absolute; top: 18px; padding: 0 15px 15px 15px; border-bottom: 2px solid #c00; border-top: 2px solid #000; }
+        .sub-nav:hover { display: block; }
+        .sub-nav ul { float: left; margin-right: 20px; }
+        .sub-nav ul.l { margin: 0; }
+        .sub-nav li { padding-bottom: 5px; }
+        .sub-nav li a { font-weight: bold; }
+        .sub-nav li a span { font-weight: normal; }
+        .sub-nav li sup { font-size: 9px; vertical-align: super; }
+        .sub-nav .cat-head { text-align: center; }
+        .sub-nav .cat-head a { color: #000; display: block; }
+        .sub-nav .cat-title { text-align: left; display: block; text-transform: uppercase; font-weight: bold; font-size: 14px; line-height: 15px; }
+        .sub-nav .cat-head:hover .cat-title { color: #c00; }
+        #Level-3-Nav #Link-1 { left: 5px; }*/
+
+/* Page Main */
+    #Page-Main { clear: both; position: relative; z-index: 50; }
+    #Page-Main > div > .content { background: #fff; padding: 0 0 30px 0; } 
+    .page-main-shadow { background: url(/images/shop/backgrounds/page-main-shadow-bg.png) no-repeat center top; margin: 0 auto; }
+    #breadcrumb { background: url(/images/shop/backgrounds/bread-grad-bg.gif) repeat-x; padding: 17px 0 17px 20px; }
+    #breadcrumb-links { float: left; }
+    #breadcrumb-links a { font-size: 13px; *line-height: 18px; }
+    #breadcrumb-links .active { color: #333; cursor: default; }
+    #breadcrumb-links .active-bold { font-size: 14px; font-weight: bold; color: #333; cursor: default; }
+    #breadcrumb .addthis_toolbox { float: right; padding-right: 20px; }
+    h1 { font-size: 20px; line-height: 24px; font-weight: bold; }
+    h2 { font-size: 18px; line-height: 22px; font-weight: bold; }
+    h3 { font-size: 16px; line-height: 20px; font-weight: bold; }
+    h4 { font-size: 14px; line-height: 18px; font-weight: bold; text-transform: uppercase; }
+    h5 { font-size: 12px; line-height: 16px; font-weight: bold; }    
+    /* Main Content Definitions */
+        #Home-Page .main-content { padding-top: 20px; float: left; background: #fff; margin-left: 20px; width: 760px; }        
+        .main-content h2 { text-transform: uppercase; padding: 6px 0; }
+        .main-content h2 span { text-transform: lowercase; }
+        .black-header { padding: 10px 0 9px 0; background: url(/images/shop/backgrounds/black-bar-bg.gif) repeat-x; font-size: 18px; line-height: 20px; text-align: center; font-weight: bold; text-transform: uppercase; color: #fff; display: block; }
+        .imgTxt { overflow: hidden; position: relative; text-indent: -2000px; }
+        
+        /* Buttons */
+        .big-btn { display: table; cursor: pointer; *display: block; }
+        .big-btn .label { display: block; white-space: nowrap; padding: 11px 10px 10px 10px; display: table-cell; *display: block; color: #fff; font-size: 16px; line-height: 18px; font-weight: bold; text-align: center; text-transform: uppercase; cursor: pointer; }
+        .big-btn .label sup { font-size: 10px; }
+        .big-btn .label .arrow { text-transform: lowercase; }
+        .big-btn input { cursor: pointer; width: 13px; height: 13px; padding: 0; margin:0; vertical-align: bottom; position: relative; left: -5px; top: -1px; *overflow: hidden; }
+        .small-btn { display: table; cursor: pointer; *display: block; }
+        .small-btn .label { display: block; white-space: nowrap; padding: 8px; display: table-cell; color: #fff; font-size: 12px; line-height: 14px; font-weight: bold; text-align: center; text-transform: uppercase; cursor: pointer; }
+        .small-btn .label sup { font-size: 7px; line-height: 9px; }
+        .small-btn input { cursor: pointer; width: 16px; height: 13px; padding: 0; margin:0; vertical-align: bottom; position: relative; left: -3px; top: -1px; *overflow: hidden; }
+      
+        .blue-btn .label { background: url(/images/shop/backgrounds/blue-grad-bg-btn.gif) repeat-x bottom; }
+        .blue-btn .label:hover { background: url(/images/shop/backgrounds/blue-grad-bg-btn-active.gif) repeat-x bottom; }   
+        .red-btn .label { background: url(/images/shop/backgrounds/red-bg-btn.gif) repeat-x bottom; }
+        .red-btn .label:hover { background: url(/images/shop/backgrounds/red-bg-btn-active.gif) repeat-x bottom; }
+        .red-btn-30 .label { background: url(/images/shop/backgrounds/red-grad-bg-btn-30pxH.gif) repeat-x bottom; }
+        .red-btn-30 .label:hover { background: url(/images/shop/backgrounds/red-grad-bg-btn-30pxH-active.gif) repeat-x bottom; }
+        .olive-btn { background: url(/images/shop/backgrounds/olive-btn-bg.gif) repeat-x bottom; }
+        .olive-btn:hover { background: url(/images/shop/backgrounds/olive-btn-bg-active.gif) repeat-x bottom; }
+        .teal-btn { background: url(/images/shop/backgrounds/teal-btn-bg.gif) repeat-x bottom; }        
+        .teal-btn:hover { background: url(/images/shop/backgrounds/teal-btn-bg-active.gif) repeat-x bottom; }    
+                    
+        /* Overlay Definitions */
+        #Overlay-Mask { width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1000; background: url(/images/shop/backgrounds/overlay-mask.png) repeat; display: none; }
+        #Overlay { border: 1px solid #ccc; position: fixed; z-index: 1001; display: none; top: 0; left: 0; }
+        #Overlay .overlay-close { width: 49px; height: 33px; position: absolute; top: -15px; right: 20px; background: url(/images/shop/buttons/overlay-close.png) no-repeat; z-index: 1004; }
+        #Overlay .overlay-content, #Overlay .overlay { display: none; background: #fff; position: absolute; -moz-box-shadow: 0 5px 10px 2px #333333; -webkit-box-shadow: 0 5px 10px 2px #333333; box-shadow: 0 5px 10px 2px #333333; }
+
+        /* bglines */
+        .bgline980 { background: url(/images/showcase/ui/bg-grad-line-fade-980.png) no-repeat; _background: white url(/images/showcase/ui/bg-grad-line-fade-980.jpg) no-repeat }
+        .bgline960 { background: url(/images/showcase/ui/bg-grad-line-fade-960.png) no-repeat; _background: white url(/images/showcase/ui/bg-grad-line-fade-960.jpg) no-repeat }
+        .bgline940 { background: url(/images/showcase/ui/bg-grad-line-fade-940.png) no-repeat; _background: white url(/images/showcase/ui/bg-grad-line-fade-940.jpg) no-repeat }
+        .bgline920 { background: url(/images/showcase/ui/bg-grad-line-fade-920.png) no-repeat; _background: white url(/images/showcase/ui/bg-grad-line-fade-920.jpg) no-repeat }
+        .bgline610 { background: url(/images/showcase/ui/bg-grad-line-fade-610.png) no-repeat; _background: white url(/images/showcase/ui/bg-grad-line-fade-610.jpg) no-repeat }
+        .bgline580 { background: url(/images/showcase/ui/bg-grad-line-fade-580.png) no-repeat; _background: white url(/images/showcase/ui/bg-grad-line-fade-580.jpg) no-repeat }
+        .bgline464 { background: url(/images/showcase/ui/bg-grad-line-fade-464.png) no-repeat; _background: white url(/images/showcase/ui/bg-grad-line-fade-464.jpg) no-repeat }
+        .bgline460 { background: url(/images/showcase/ui/bg-grad-line-fade-460.png) no-repeat; _background: white url(/images/showcase/ui/bg-grad-line-fade-460.jpg) no-repeat }
+        .bgline420 { background: url(/images/showcase/ui/bg-grad-line-fade-420.png) no-repeat; _background: white url(/images/showcase/ui/bg-grad-line-fade-420.jpg) no-repeat }
+        .bgline340 { background: url(/images/showcase/ui/bg-grad-line-fade-340.png) no-repeat; _background: white url(/images/showcase/ui/bg-grad-line-fade-340.jpg) no-repeat }
+        .bgline317 { background: url(/images/showcase/ui/bg-grad-line-fade-317.png) no-repeat; _background: white url(/images/showcase/ui/bg-grad-line-fade-317.jpg) no-repeat }
+
+    /* Tabs Definitions */
+        .tab-wrapper { border: 1px solid #ccc; border-top: 3px solid #00447c; position: relative; }
+        .tabs-nav { list-style: none; margin: 0 !important; padding: 0; height: 29px; position: relative; }
+        .tabs-nav li { float: left; border-bottom: 1px solid #CCCCCC; text-indent: 0; padding: 0; margin: 0 1px 0 0 !important; list-style-image: none !important; }
+        .tabs-nav li a { background: url(/images/shop/backgrounds/tab-bg.gif) repeat-x; font-size: 12px; line-height: 14px; display: block; text-align: center; text-decoration:none; color: #fff; font-weight: bold; text-transform: uppercase; padding: 8px 0 6px 0; position: relative; top: 1px; }
+        .tabs-nav li a:hover { background: url(/images/shop/backgrounds/tab-bg-hover.gif) repeat-x; }
+        .tabs-nav .tab-state-active a,
+        .tabs-nav .tabs-selected a,
+        .tabs-nav li.tabs-selected a:hover { background: url(/images/shop/backgrounds/tab-bg-active.gif) repeat-x; cursor:default !important; color:#fff !important; }
+        .tabs-panel { font-size: 12px; }
+        .tabs-panel .header { padding: 30px; }
+        
+    /* Featured Products Definitions */        
+        .featured { padding: 10px; border: 1px solid #ccc; }
+        .featured .col { width: 364px; }
+        .featured p { text-align: center; }
+        .featured .title { font-size: 20px; line-height: 22px; padding-bottom: 2px; font-weight: bold; color: #000; }
+        .featured .sub-title { font-size: 14px; line-height: 16px; padding-bottom: 3px; font-weight: bold; color: #c00; }
+        .featured .prod-name { padding: 5px 0 10px 0; }
+        .featured .prod-name a { font-size: 18px; line-height: 20px; font-weight: bold; }
+        .featured .prod-features { margin: 0 auto 10px auto; width: 320px; border-bottom: 1px solid #ccc; border-top: 1px solid #ccc; padding-top: 10px; }
+        .featured .rating { padding: 0 0 10px 0; }
+        .featured .rating img { position: relative; top: 2px; }
+        .featured .prod-features .col { position: relative; width: 70px; height: 60px; margin: 0 5px; }
+        .featured .prod-features .processor p,
+        .featured .prod-features .os p { font-size: 9px; line-height: 10px; position: relative; top: 33px; }
+        .featured .prod-features .processor p sup,
+        .featured .prod-features .os p sup { font-size: 6px; line-height: 6px; }        
+        .featured .prod-features ul { list-style: disc inside none; }
+        .featured .prod-features ul li { text-align: center; color: #00447c; font-size: 14px; line-height: 16px; padding-bottom: 5px; }               
+        .featured .prod-features .col .text { padding: 0; position: relative; top: 9px; font-size: 16px; }
+        .featured .prod-features .col .text span { font-size: 12px; }
+        .featured .orig-price { font-size: 12px; line-height: 14px; color: #666; }
+        .featured .total-price { font-size: 20px; line-height: 22px; color: #666; }
+        .featured .total-price span { font-weight: bold; color: #c00; }
+        .featured .savings { font-size: 14px; line-height: 16px; font-weight: bold; padding-bottom: 2px; }
+        .featured .discount-desc { color: #666; padding-bottom: 10px; }
+        .featured .learn-more-btn { margin: 7px auto 0 auto; }
+        .featured .learn-more-btn label { padding: 8px 40px; }    
+        /* Mods */
+        * + html .featured .learn-more-btn { margin: 15px auto 10px auto; } /* IE7 */
+        /**/
+        
+        /* Slider Nav */
+        .slider-nav { margin: 0 auto; padding-top: 20px; width: auto; }
+        .slider-nav .nav-link { float: left; font-weight: bold; margin: 1px 5px 0 2px; display: block; width: 42px; color:  #00447c; cursor: pointer; }
+        .slider-nav .nav-link.back-link { margin-right: 3px; }
+        .slider-nav .nav-link.back-link .arrow { margin-right: 0; }
+        .slider-nav .nav-link .arrow { color: #c00; }
+        .slider-nav .nav-link.disabled,
+        .slider-nav .nav-link.disabled .arrow { color: #ccc; cursor: auto; }
+        .slider-nav .css-tabs { width: auto; display: block; float: left; }
+        .slider-nav li { list-style: none; float: left; margin-right: 3px; }
+        .slider-nav li a { display: block; background: url(/images/shop/backgrounds/slider-nav.gif) repeat-x; width: 15px; height: 15px; cursor: pointer; }
+        .slider-nav li a.active,
+        .slider-nav li a:hover { background: url(/images/shop/backgrounds/slider-nav-active.gif) repeat-x; }       
+        
+        .shop-more { margin-top: 15px; }
+        .shop-more .col { width: 356px; height: 100px; border: 1px solid #ccc; position: relative; background: url(/images/shop/backgrounds/gray-grad-bg-200pxH.gif) repeat-x top; margin-right: 15px; }
+        .shop-more .col.l { margin: 0; }
+        .shop-more img { position: absolute; }
+        .shop-more .col img { left: -8px; top: 5px;}        
+        .shop-more .col.l img { left: -13px; top: 20px;}
+        .shop-more .text { padding: 15px 0 0 118px; }
+        .shop-more .text .title { font-size: 18px; line-height: 22px; text-transform: uppercase; font-weight: bold; }
+        .shop-more .text ul { list-style: none; display: block; }
+        /* Mods */
+        * + html .shop-more .text ul { width: 100%; } /* IE7 */
+        /**/                 
+        .shop-more .text li { background: url(/images/shop/icons/red-bullet.gif) no-repeat right center; color: #666; padding: 0 10px 0 5px; display: inline; }
+        .shop-more .text li.f { padding-left: 0; }
+        .shop-more .text li.l { background: none; }
+        .shop-more .text a { font-size: 14px; line-height: 16px; }        
+
+    /* Customer Reviews */            
+        #Customer-Reviews h2 { color: #c00; font-weight: normal; }
+        #Customer-Reviews .share-opinions { padding: 10px; font-weight: bold; padding-left: 20px; }
+        #Customer-Reviews img.write-a-review, #Customer-Reviews .stars img { vertical-align: middle; }
+        #Customer-Reviews .review, #Customer-Reviews p.pagination { background: url("/images/shop/backgrounds/gray-grad-bg-140pxH.gif") repeat-x scroll 0 0 transparent; margin: 0 auto 20px auto !important; padding: 0 20px; border-top: 1px solid #ccc; }
+        #Customer-Reviews h4 { color: #000; font-size: 16px; padding: 10px 0; text-transform: none; }
+        #Customer-Reviews .grey-text { color: #999999; font-size: 11px; font-weight: normal; text-transform: uppercase; }
+        #Customer-Reviews img.write-a-review, #Customer-Reviews .stars img { vertical-align: middle; }
+        #Customer-Reviews q:before, q:after { content: ""; }
+        #Customer-Reviews q:before, q:after {content: ""; }
+        #Customer-Reviews .review { padding-bottom: 20px; }
+        #Customer-Reviews .review q { display: block; padding: 10px 10px 0; }
+        #Customer-Reviews .review .response { background: #efefef; padding-bottom: 10px; }        
+        
+    /* Link Boxes */
+        #Link-Boxes { height: 200px; position: relative; left: -15px; width: 1050px; overflow: hidden; margin-top: 20px; }
+        #Link-Boxes a { display: block; float: left; text-align: center; width: 335px; margin: 20px 0 0 0; }
+        #Link-Boxes dl { float: left; width: 305px; margin-top: 20px; }     
+        #Link-Boxes dl.link-box { height: 177px; width: 310px; }
+        #Link-Boxes dl.before-you-buy-big { background: url("/images/showcase/link-boxes/blank-box-big-mid.png") no-repeat scroll 0 0 transparent; } 
+        #Link-Boxes dl.link-box dt { height: 0; overflow: hidden; text-indent: -2000px; }
+        #Link-Boxes dl.link-box dt.title { color: #CC0000; font-size: 13px; height: auto; padding: 20px 25px 5px; position: relative; text-indent: 0; z-index: 10; }            
+        #Link-Boxes dl.before-you-buy-big dt.title { text-transform: uppercase; }
+        #Link-Boxes dl.link-box dd { left: 25px; margin: 0 !important; padding: 0 !important; position: absolute; top: 50px; width: 85%; z-index: 5; }
+        #Link-Boxes dl.list dd { position: relative; top: 0; }
+        #Link-Boxes dl.before-you-buy-big dd { padding: 1px 0 !important; }
+        #Link-Boxes dl a { float: none; width: auto; }
+        #Link-Boxes dl.link-box dd a { display: inline !important; float: none !important; font-weight: bold !important; }
+
+/* Global Footer */
+        #Page-Footer, #Push { position: relative; clear: both; height: 232px; width: 100%;  /* .push must be the same height as .footer */ }
+    /* Sitemap */
+        #Sitemap { background: url(/images/shop/backgrounds/sitemap-grad-bg.gif) repeat-x; height: 200px; border-top: 1px solid #ccc; }
+        #Sitemap .content { padding-top: 15px; }
+        #Sitemap-Text-Links { float: left; }
+        #Sitemap-Text-Links ul { float: left; padding-right: 25px; }
+        #Sitemap-Text-Links li { padding: 2px 0; }
+        .sitemap-category, .sitemap-category a { text-transform: uppercase; font-weight: bold; color: #000; }
+        #Sitemap-Social-Links { float: left; }
+        #Sign-Up .sitemap-category { padding-bottom: 5px; }
+        #Sign-Up input { width: 180px; background: #ccc; border: 1px solid #999; float: left; height: 19px; padding: 3px 4px; }
+        #Sign-Up a { display: block; float: left; background: url(/images/shop/buttons/signup-btn.png) no-repeat; width: 48px; height: 27px; margin-left: 1px; }
+        #Sign-Up a:hover { background: url(/images/shop/buttons/signup-btn-active.png) no-repeat; }
+        #Social-Icons { padding-top: 10px; clear: both; }
+        #Social-Icons .social-links { padding-top: 5px; }
+        #Social-Icons .social-links a { background: url(/images/shop/icons/social-icons.png) no-repeat; display: block; float: left; width: 30px; height: 33px; }
+        #Social-Icons .social-links .facebook { background-position: 0 0; }
+        #Social-Icons .social-links .twitter { background-position: -27px 0; }
+        #Social-Icons .social-links .youtube { background-position: -55px 0; }
+        #Social-Icons .social-links .google { background-position: -85px 0; }
+        #Security-Icons { height: 45px; width: 184px; margin-top: 15px; }
+    /* Copyright */
+        #Copyright { background: url(/images/shop/backgrounds/copyright-grad-bg.gif) repeat-x; height: 38px; border-top: 1px solid #000; }
+        #Copyright p { text-align: right; color: #fff; font-size: 11px; padding-top: 14px; }
+        #Site-Feedback-Btn { background: url(/images/shop/buttons/site-feedback-btn2.png) no-repeat; width: 164px; height: 45px; position:absolute; left: 0; top: -7px; }
+        #Site-Feedback-Btn img { position: relative; left: 21px; top: 16px; }
